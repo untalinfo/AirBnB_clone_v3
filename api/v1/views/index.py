@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+This module create a diverse task
+"""
 from api.v1.views import app_views
 from flask import jsonify
 
