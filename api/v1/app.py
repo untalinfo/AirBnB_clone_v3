@@ -12,11 +12,9 @@ app.register_blueprint(app_views)
 
 
 @app.teardown_appcontext
-def teardown(exception):
+def teardown(self):
     """
     Remove the current session
-    Args:
-        exception :
     """
     storage.close()
 
