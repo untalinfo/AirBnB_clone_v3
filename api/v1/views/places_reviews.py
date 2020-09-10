@@ -8,6 +8,7 @@ from api.v1.views import app_views
 from models import storage
 from models.place import Place
 from models.review import Review
+from models.user import User
 
 
 @app_views.route('/places/<place_id>/reviews',
@@ -52,18 +53,20 @@ def delete_review(review_id=None):
 def create_review(place_id):
     """ Create a Review object """
     places_id = storage.get(Place, place_id)
+    req_review = request.get_json()
     if places_id is None:
         abort(404)
-    if not request.get_json():
+    if not req_review:
         return jsonify({"error": "Not a JSON"}), 400
-    if 'user_id' not in request.get_json():
+    if 'user_id' not in req_review:
         return jsonify({"error": "Missing user_id"}), 400
+    if storage.get(User, req_review['user_id']) is None:
+        abort(404)
     if 'text' not in request.get_json():
         return jsonify({"error": "Missing text"}), 400
 
-    req_place = request.get_json()
-    req_place['place_id'] = place_id
-    new_review = Review(**req_place)  # kwargs
+    req_review['place_id'] = place_id
+    new_review = Review(**req_review)  # kwargs
     storage.new(new_review)
     storage.save()
 
