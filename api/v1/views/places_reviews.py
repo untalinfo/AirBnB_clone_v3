@@ -63,7 +63,7 @@ def create_review(place_id):
 
     req_place = request.get_json()
     req_place['place_id'] = place_id
-    new_review = Review(**req_state)  # kwargs
+    new_review = Review(**req_place)  # kwargs
     storage.new(new_review)
     storage.save()
 
