@@ -3,6 +3,8 @@ The console is the first segment of the AirBnB project at Holberton School that 
 
 This version of the Airbnb clone project contains the development of a RESTful API which allows us an interface to make queries through the HTTP protocol to the server. Queries such as GET, POST, PUT, or DELETE, for the various methods such as the creation of users, states, cities, etc.
 
+![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2020/9/02078cd7f0573885c85a225c7436584a5afea1f9.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200910%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200910T163654Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3e71bb687579fcec81e1aa936fd1f25bc6a4f19f89f78d0701d9f69e0dc560c5)
+
 #### Functionalities of this command interpreter:
 * Create a new object (ex: a new User or a new Place)
 * Retrieve an object from a file, a database etc...
@@ -58,10 +60,22 @@ Classes inherited from Base Model:
 
 #### `/models/engine` directory contains File Storage class that handles JASON serialization and deserialization :
 [file_storage.py](/models/engine/file_storage.py) - serializes instances to a JSON file & deserializes back to instances
-* `def all(self)` - returns the dictionary __objects
+* `def all(self)` - returns all the dictionary __objects
 * `def new(self, obj)` - sets in __objects the obj with key <obj class name>.id
 * `def save(self)` - serializes __objects to the JSON file (path: __file_path)
-* ` def reload(self)` -  deserializes the JSON file to __objects
+* `def reload(self)` -  deserializes the JSON file to __objects
+* `def delete(self)` -  delete obj from __objects if it’s inside
+* `def get(self)` -  Returns the object based on the class name and its ID
+* `def count(self)` - Returns the number of objects in storage matching the given class name
+
+[db_storage.py](/models/engine/db_storage.py) - interacts with the MySQL database
+* `def all(self)` - Returns all objects with query on the current database session
+* `def new(self, obj)` - Add the object to the current database session
+* `def save(self)` - Commit all changes of the current database session
+* `def reload(self)` - Reloads data from the database
+* `def delete(self)` - Delete a object from the current database session
+* `def get(self)` - Returns the object based on the class name and its ID
+* `def count(self)` - Returns the number of objects in storage matching the given class name
 
 #### `/tests` directory contains all unit test cases for this project:
 [/test_models/test_base_model.py](/tests/test_models/test_base_model.py) - Contains the TestBaseModel and TestBaseModelDocs classes
@@ -172,12 +186,12 @@ No known bugs at this time.
 
 ## Authors
 Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
-Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
-Crispthofer Rincon Murrain - [Github](https://github.com/CrispthoAlex) / [Twitter](https://twitter.com/CrispthoAlex)  
+Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang) 
+Crispthofer Rincon Murrain - [Github](https://github.com/CrispthoAlex) / [Twitter](https://twitter.com/CrispthoAlex) 
 Oscar Info Giraldo - [Github](https://github.com/untalinfo) / [Twitter](https://twitter.com/untalinfo)
 
 Second part of Airbnb: Joann Vuong
-Three part of 
+Three part of Airbnb: Crispthofer Rincon - Oscar Info Giraldo
 ## License
 Public Domain. No copy write protection. 
 
