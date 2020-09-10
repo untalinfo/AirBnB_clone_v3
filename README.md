@@ -1,4 +1,4 @@
-# AirBnB Clone - The Console
+# AirBnB Clone - The Console - RESTful API
 The console is the first segment of the AirBnB project at Holberton School that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.
 
 #### Functionalities of this command interpreter:
@@ -97,6 +97,21 @@ TestBaseModel class:
 * `def test_pep8_conformance_test_file_storage(self)` - Test that tests/test_models/test_file_storage.py conforms to PEP8
 * `def test_file_storage_module_docstring(self)` - Test for the file_storage.py module docstring
 * `def test_file_storage_class_docstring(self)` - Test for the FileStorage class docstring
+* `def test_get(self)` - Test case for get() method
+* `def test_count(self)` - Test case for count() method
+
+[/test_models/test_db_storage.py](/tests/test_models/test_db_storage.py)
+#### Contains the TestDBStorageDocs class:
+* `def setUpClass(cls)` - Set up for the doc tests
+* `def test_pep8_conformance_db_storage(self)` - Test that models/db_storage.py conforms to PEP8
+* `def test_pep8_conformance_test_db_storage(self)` - Test that tests/test_models/test_db_storage.py conforms to PEP8
+* `def test_db_storage_module_docstring(self)` - Test for the db_storage.py module docstring
+* `def test_db_storage_class_docstring(self)` - Test for the DBStorage class docstring
+* `def test_dbs_func_docstrings(self)` - Test for the presence of docstrings in DBStorage methods
+#### Contains the TestDBStorage class:
+* `def test_all_returns_dict` - Test that all returns a dictionaty
+* `def test_get(self)` - Test case for get() method
+* `def test_count(self)` - Test case for count() method
 
 [/test_models/test_place.py](/tests/test_models/test_place.py) - Contains the TestPlaceDoc class:
 * `def setUpClass(cls)` - Set up for the doc tests
@@ -156,7 +171,11 @@ No known bugs at this time.
 ## Authors
 Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
 Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
+Crispthofer Rincon Murrain - [Github](https://github.com/CrispthoAlex) / [Twitter](https://twitter.com/CrispthoAlex)  
+Oscar Info Giraldo - [Github](https://github.com/untalinfo) / [Twitter](https://twitter.com/untalinfo)
 
 Second part of Airbnb: Joann Vuong
+Three part of 
 ## License
 Public Domain. No copy write protection. 
+
