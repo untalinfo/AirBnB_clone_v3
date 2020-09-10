@@ -12,16 +12,16 @@ from models.review import Review
 
 @app_views.route('/places/<place_id>/reviews',
                  methods=['GET'], strict_slashes=False)
-def all_riviews(place_id=None):
+def all_reviews(place_id=None):
     """ Retrieves the list of all reviews of a Place objects """
     places_id = storage.get(Place, place_id)
-    if states_id is None:
+    if places_id is None:
         abort(404)
     list_dic_reviews = []
     for review in places_id.reviews:
-        list_dic_reviwes.append(review.to_dict())
+        list_dic_reviews.append(review.to_dict())
 
-    return jsonify(list_dic_riviews)
+    return jsonify(list_dic_reviews)
 
 
 @app_views.route('/reviews/<review_id>', methods=['GET'], strict_slashes=False)
@@ -52,7 +52,7 @@ def delete_review(review_id=None):
 def create_review(place_id):
     """ Create a Review object """
     places_id = storage.get(Place, place_id)
-    if states_id is None:
+    if places_id is None:
         abort(404)
     if not request.get_json():
         return jsonify({"error": "Not a JSON"}), 400
