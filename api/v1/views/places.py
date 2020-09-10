@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-new view for State objects that handles all default
+New view for State objects that handles all default
 RestFul API actions
 """
 from flask import Flask, jsonify, Blueprint, abort, request
@@ -81,11 +81,11 @@ def create_place(city_id):
 @app_views.route('/places/<place_id>', methods=['PUT'], strict_slashes=False)
 def update_place_id(place_id=None):
     """ Update a City object """
-    cities_id = storage.get(Place, place_id)
+    places_id = storage.get(Place, place_id)
     req_place = request.get_json()
     if places_id is None:
         abort(404)
-    if not req_places:
+    if not req_place:
         return jsonify({"error": "Not a JSON"}), 400
 
     for key, values in req_place.items():
