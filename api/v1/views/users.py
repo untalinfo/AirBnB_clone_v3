@@ -46,11 +46,8 @@ def delete_user(user_id=None):
 
 @app_views.route('/users',
                  methods=['POST'], strict_slashes=False)
-def create_user(state_id):
+def create_user():
     """ Create a User object """
-    users_id = storage.get(User, user_id)
-    if users_id is None:
-        abort(404)
     if not request.get_json():
         return jsonify({"error": "Not a JSON"}), 400
     if 'email' not in request.get_json():
@@ -59,7 +56,7 @@ def create_user(state_id):
         return jsonify({"error": "Missing password"}), 400
 
     req_user = request.get_json()
-    new_user = City(**req_user)  # kwargs
+    new_user = User(**req_user)  # kwargs
     storage.new(new_user)
     storage.save()
 
