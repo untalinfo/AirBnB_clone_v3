@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-new view for State objects that handles all default
+new view for Review object that handles all default
 RestFul API actions
 """
 from flask import Flask, jsonify, Blueprint, abort, request
 from api.v1.views import app_views
 from models import storage
-from models.pace import Place
+from models.place import Place
 from models.review import Review
 
 
